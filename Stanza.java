@@ -30,6 +30,9 @@ public class Stanza {
     public String[] getCalendario() {
         return calStanza.getCalendario();
     }
+    public void cancellaPrenotazione(String nome){
+        calStanza.cancellaPrenotazione(nome);
+    }
 
     @Override
     public String toString() {

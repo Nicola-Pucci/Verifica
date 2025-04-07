@@ -25,7 +25,7 @@ public class Albergo {
      public String prenotaStanza(String nome,int a, int b){
         for(int i = 0;i<(piani*stanze);i++){
             if(elencoStanze[i].prenotaStanza(nome,a,b)){
-                return "gg"+elencoStanze[i].getNumStanza();
+                return elencoStanze[i].getNumStanza();
             }
         }
         return "Errore nella ragistrazione";
@@ -34,9 +34,12 @@ public class Albergo {
     public String prenotaStanza(String nome,int a){
         for(int i = 0;i<(piani*stanze);i++){
             if(elencoStanze[i].prenotaStanza(nome,a)){
-                return "gg"+elencoStanze[i].getNumStanza();
+                return elencoStanze[i].getNumStanza();
             }
         }
         return "Errore nella ragistrazione";
+    }
+    public void cancellaPrenotazione(String nome,int stanza){
+        elencoStanze[stanza].cancellaPrenotazione(nome);
     }
 }

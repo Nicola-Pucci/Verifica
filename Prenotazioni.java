@@ -40,12 +40,31 @@ public class Prenotazioni {
     }
     public String[] getCalendario(){
         String [] mensile = new String[30];
+        String occupata;
+        String giorno = null;
         for(int i = 0;i<30;i++){
-            if(this.calendario[i].isPrenotata()){
-                mensile[i]= Integer.toString(i%7)+" "+Integer.toString(i) + " Occupata";
-            }else{
-                mensile[i]= Integer.toString(i%7)+" "+Integer.toString(i) + " Libera";
+            switch (i%7){
+                case 0:
+                    giorno = "Lunedì";
+                case 1:
+                    giorno = "Martedì";
+                case 2:
+                    giorno = "Mercoledì";
+                case 3:
+                    giorno = "Giovedì";
+                case 4:
+                    giorno = "Venerdì";
+                case 5:
+                    giorno = "Sabato";
+                case 6:
+                    giorno = "Domenica";
             }
+            if(this.calendario[i].isPrenotata()){
+                occupata = "Occupata";
+                }else{
+                occupata = " Libera";
+            }
+            mensile [i] = giorno+" "+Integer.toString(i+1) + " "+ occupata;
         }
         return mensile;
     }
